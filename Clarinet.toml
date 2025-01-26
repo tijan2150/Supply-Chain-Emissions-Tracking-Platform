@@ -5,6 +5,11 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
+[contracts.green-achievement-nft]
+path = 'contracts/green-achievement-nft.clar'
+clarity_version = 2
+epoch = 2.5
+
 [contracts.reduction-targets]
 path = 'contracts/reduction-targets.clar'
 clarity_version = 2
