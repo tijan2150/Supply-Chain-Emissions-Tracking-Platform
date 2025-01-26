@@ -31,10 +31,10 @@
 )
 
 (define-read-only (is-target-achieved (company principal) (current-emissions uint))
-  (let
-    ((target (unwrap! (get-reduction-target company) (err u404))))
-    (>= (* (- (get baseline-emissions target) current-emissions) u100)
-        (* (get baseline-emissions target) (get target-percentage target)))
+  (match (get-reduction-target company)
+    target (ok (>= (* (- (get baseline-emissions target) current-emissions) u100)
+                   (* (get baseline-emissions target) (get target-percentage target))))
+    (err u404)
   )
 )
 
